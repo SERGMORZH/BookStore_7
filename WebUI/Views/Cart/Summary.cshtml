@@ -1,7 +1,21 @@
 ﻿@model Domain.Entities.Cart
 
 <div class="navbar-right">
-    @Html.ActionLink("Администратор", "Login", "Account",
+    @Html.ActionLink("Администратор", "Index", "Home",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+<div class="navbar-text navbar-right">
+    <b>           </b>
+
+</div>
+<div class="navbar-text navbar-right">
+    <b>           </b>
+
+</div>
+
+<div class="navbar-right">
+    @Html.ActionLink("Поиск автора", "Index", "Search",
     new { returnUrl = Request.Url.PathAndQuery },
     new { @class = "btn btn-default navbar-btn" })
 </div>

@@ -31,7 +31,7 @@ namespace WebUI.Controllers
                 if (authProvider.Authenticate(model.UserName, model.Password))
                 {
                     //return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

@@ -41,7 +41,5 @@ namespace WebUI.Controllers
 
             return View(model);
         }
-
     }
-
 }

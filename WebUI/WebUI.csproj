@@ -192,6 +192,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -274,6 +275,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_AdminLayoutAPI.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Search\BookSearch.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BookStore_6\Domain\Domain.csproj">

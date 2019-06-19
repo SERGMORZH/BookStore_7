@@ -3,14 +3,17 @@
     ViewBag.Title = "Админ панель";
     Layout = "~/Views/Shared/_AdminLayoutAPI.cshtml";
 }
-
+<h2> Панель администратора</h2>
+<h3> Список книг</h3>
 <div id="tableBlock"></div>
 <div id="editBlock">
     <p><b>Редактирование книги</b></p>
     <table>
-        <tr><td><input type="hidden" id="editId" /></td><td></td></tr>
+        <tr><td><input type="hidden" id="editBookId" /></td><td></td></tr>
         <tr><td><label>Название: </label></td><td><input class="text-right" id="editName" /></td></tr>
         <tr><td><label>Автор: </label></td><td><input type="text" id="editAuthor" /></td></tr>
+        <tr><td><label>Описание: </label></td><td><input class="text-right" id="editDescription" /></td></tr>
+        <tr><td><label>Категория: </label></td><td><input class="text-right" id="editCategory" /></td></tr>
         <tr><td><label>Цена: </label></td><td><input type="number" id="editPrice" /></td></tr>
     </table>
     <button id="editBook">Сохранить</button>
@@ -20,6 +23,8 @@
     <table>
         <tr><td><label>Название: </label></td><td><input class="text-right" id="addName" /></td></tr>
         <tr><td><label>Автор: </label></td><td><input type="text" id="addAuthor" /></td></tr>
+        <tr><td><label>Описание: </label></td><td><input type="text" id="addDescription" /></td></tr>
+        <tr><td><label>Категория: </label></td><td><input type="text" id="addCategory" /></td></tr>
         <tr><td><label>Цена: </label></td><td><input type="number" id="addPrice" /></td></tr>
     </table>
     <button id="addBook">Сохранить</button>
@@ -65,6 +70,8 @@
         var book = {
             Name: $('#addName').val(),
             Author: $('#addAuthor').val(),
+            Description: $('#addDescription').val(),
+            Category: $('#addCategory').val(),
             Price: $('#addPrice').val()
         };
 
@@ -98,12 +105,14 @@
     }
     // редактирование книги
     function EditBook() {
-        var id = $('#editId').val()
+        var id = $('#editBookId').val()
         // получаем новые значения для редактируемой книги
         var book = {
-            BookId: $('#editId').val(),
+            BookId: $('#editBookId').val(),
             Name: $('#editName').val(),
             Author: $('#editAuthor').val(),
+            Description: $('#editDescription').val(),
+            Category: $('#editCategory').val(),
             Price: $('#editPrice').val()
         };
         $.ajax({
@@ -121,10 +130,9 @@
     }
  // вывод полученных данных на экран
     function WriteResponse(books) {
-        var strResult = "<table><th>ID</th><th>Название</th><th>Автор</th><th>Цена</th>";
+        var strResult = "<table><th>ID</th><th>Название</th>";
         $.each(books, function (index, book) {
-            strResult += "<tr><td>" + book.BookId + "</td><td> " + book.Name + "</td><td>" +
-            book.Author + "</td><td>" + book.Price +
+            strResult += "<tr><td>" + book.BookId + "</td><td> " + book.Name + 
             "</td><td><a id='editItem' data-item='" + book.BookId + "' onclick='EditItem(this);' >Редактировать</a></td>" +
             "<td><a id='delItem' data-item='" + book.BookId + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
         });
@@ -149,9 +157,11 @@
         if (book != null) {
             $("#createBlock").css('display', 'none');
             $("#editBlock").css('display', 'block');
-            $("#editId").val(book.BookId);
+            $("#editBookId").val(book.BookId);
             $("#editName").val(book.Name);
             $("#editAuthor").val(book.Author);
+            $("#editDescription").val(book.Description);
+            $("#editCategory").val(book.Category);
             $("#editPrice").val(book.Price);
         }
         else {
