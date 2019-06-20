@@ -12,9 +12,25 @@
 <body>
     <div class="navbar navbar-inverse" role="navigation">
         <a class="navbar-brand" href="#">КНИЖНЫЙ МАГАЗИН</a>
+
+        
+        <a></a>
         @Html.Action("Summary", "Cart")
+        <a></a>
+        <a></a>
+        @using (Html.BeginForm("Index", "Search"))
+        {
+            <div class="navbar-right">
+
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery),
+                <input type="submit" class="btn btn-default navbar-btn" value="Поиск по автору" />
+            </div>
+        }
+
+
 
     </div>
+
     <div class="row panel">
         <div id="categories" class="col-xs-3">
             @Html.Action("Menu", "Nav")
@@ -23,5 +39,7 @@
             @RenderBody()
         </div>
     </div>
+    
+    
 </body>
 </html>

@@ -6,20 +6,33 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+     <title>@ViewBag.Title</title>
     <script src="~/Scripts/jquery-1.9.1.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/Content/ErrorStyles.css" rel="stylesheet" />
+
 </head>
+
 <body>
+    <div>
+       @Html.ActionLink("Домой", "List", "Books", null,
+    new { @class = "btn btn-block btn-default btn-lg" })
+    </div>
+        
+
+
+
     
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            
-        </footer>
+        <footer></footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

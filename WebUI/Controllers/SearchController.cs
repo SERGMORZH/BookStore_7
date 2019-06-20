@@ -14,16 +14,26 @@ namespace WebUI.Controllers
         {
             repository = repo;
         }
-        [HttpPost]
-        public ActionResult BookSearch(string name)
+
+        public ActionResult Index()
         {
+            ViewBag.Title = "Поиск по автору";
+
+            return View();
+        }
+
+        [HttpPost]
+        public PartialViewResult BookSearch(string name)
+        {
+            
             var allbooks = repository.Books.Where(a => a.Author.Contains(name)).ToList();
             if (allbooks.Count <= 0)
             {
-                return HttpNotFound();
+                return PartialView();
             }
-            //return PartialView(allbooks);
-            return RedirectToAction("Index", "Search");
+
+            return PartialView(allbooks);
+            
         }
     }
 }

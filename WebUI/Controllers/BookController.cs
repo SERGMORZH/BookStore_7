@@ -18,7 +18,7 @@ namespace WebUI.Controllers
         {
             repository = repo;
         }
-        public ViewResult List(string category, int page = 1)
+        public ViewResult List(string category, string author, int page = 1)
         {
             BooksListViewModel model = new BooksListViewModel();
             model.Books = repository.Books
@@ -37,6 +37,7 @@ namespace WebUI.Controllers
 
             };
             model.CurrentCategory = category;
+           
             //return JsonResult
 
             return View(model);

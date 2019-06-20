@@ -1,18 +1,31 @@
 ﻿@{
+    ViewBag.Title = "Панель поиска";
     Layout = null;
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/Content/ErrorStyles.css" rel="stylesheet" />
 
-@{
-    ViewBag.Title = "Index";
-}
+    <title>Книги</title>
+</head>
 
-<div>
-    @using (Ajax.BeginForm("BookSearch", new AjaxOptions { UpdateTargetId = "results" }))
-    {
-        <input type="text" name="name" />
-        <input type="submit" value="Поиск" />
-    }
-    <div id="results"></div>
+<div class="navbar navbar-inverse" role="navigation">
+    <a class="navbar-brand" href="#">КНИЖНЫЙ МАГАЗИН</a>
+    @Html.ActionLink("Домой", "List", "Books", null,
+    new { @class = "btn btn-block btn-default btn-lg" })
 </div>
-@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
-@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    <h3> Введите фамилию автора</h3>
+    <div>
+
+        @using (Ajax.BeginForm("BookSearch", new AjaxOptions { UpdateTargetId = "results" }))
+        {
+            <input type="text" name="name" />
+            <input type="submit" value="Поиск" />
+        }
+        <div id="results"></div>
+    </div>
+    @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

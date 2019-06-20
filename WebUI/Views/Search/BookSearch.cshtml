@@ -1,5 +1,25 @@
 ﻿
-@model IEnumerable <Domain.Entities.Book>
+@{
+    Layout = null;
+}
+@model IEnumerable<Domain.Entities.Book>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="/Content/ErrorStyles.css" rel="stylesheet" />
+
+    <title>Книги</title>
+</head>
+
+<div class="navbar navbar-inverse" role="navigation">
+    <a class="navbar-brand" href="#">КНИЖНЫЙ МАГАЗИН</a>
+    @Html.ActionLink("Домой", "List", "Books", null,
+    new { @class = "btn btn-block btn-default btn-lg" })
+</div>
+
 <div id="searchresults">
     <h3>Все книги автора : @Model.First().Author</h3>
     <ul>
