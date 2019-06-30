@@ -62,3 +62,6 @@ C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\Ninject.W
 C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\Ninject.Web.Common.xml
 C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\Ninject.Web.Mvc.pdb
 C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\Ninject.Web.Mvc.xml
+C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\System.Web.Cors.dll
+C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\System.Web.Http.Cors.dll
+C:\Users\1\Documents\Visual Studio 2015\Projects\BookStore_7\WebUI\bin\System.Web.Http.Cors.xml

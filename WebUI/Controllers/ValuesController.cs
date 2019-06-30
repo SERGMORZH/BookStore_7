@@ -8,16 +8,18 @@ using System.Web.Http;
 using Domain.Entities;
 using Domain.Concrete;
 using System.Data;
+using System.Web.Http.Cors;
 
 namespace WebUI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ValuesController : ApiController
     {
         BookContext db = new BookContext();
 
         public IEnumerable<Book> GetBooks()
         {
-            return db.Books;
+            return db.Books; 
         }
 
         public Book GetBook(int id)

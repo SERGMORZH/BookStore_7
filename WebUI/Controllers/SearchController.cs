@@ -23,13 +23,14 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult BookSearch(string name)
+        public ActionResult BookSearch(string name)
         {
             
             var allbooks = repository.Books.Where(a => a.Author.Contains(name)).ToList();
+
             if (allbooks.Count <= 0)
             {
-                return PartialView();
+                return HttpNotFound();
             }
 
             return PartialView(allbooks);
